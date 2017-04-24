@@ -67,7 +67,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
-
+(electric-pair-mode t)
 
 (provide '.emacs)
 ;;; .emacs ends here
