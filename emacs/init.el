@@ -16,6 +16,8 @@
 ;; Elpy
 (elpy-enable)
 
+;; higlight line numbers
+(load-file "~/.emacs.d/linum-highligth-current-line-number.el")
 
 ;; (load-file "~/.emacs.d/elpa/load-relative-20160504.321/load-relative.el")
 (load-file "~/.emacs.d/elpa/load-relative-20160716.438/load-relative.el")
