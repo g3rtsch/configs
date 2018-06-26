@@ -248,6 +248,16 @@
   <keybind key="W-m">
     <action name="ToggleMaximize"/>
   </keybind>
+  <keybind key="W-j">
+    <action name="MoveResizeTo">
+      <monitor>next</monitor>
+    </action>
+  </keybind>
+  <keybind key="W-k">
+    <action name="MoveResizeTo">
+      <monitor>next</monitor>
+    </action>
+  </keybind>
 
   <!-- Keybindings for window switching -->
   <keybind key="A-Tab">
