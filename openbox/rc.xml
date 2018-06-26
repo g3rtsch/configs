@@ -326,9 +326,9 @@
     <action name="Execute">
       <startupnotify>
         <enabled>true</enabled>
-        <name>Konqueror</name>
+        <name>Emacs</name>
       </startupnotify>
-      <command>kfmclient openProfile filemanagement</command>
+      <command>/usr/bin/emacs</command>
     </action>
   </keybind>
 </keyboard>
