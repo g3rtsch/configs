@@ -1,11 +1,15 @@
 ;;; keybindings --- keybinds
 ;;; Commentary:
 ;;; Code:
-(global-set-key (kbd "C-c C-c") 'comment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
+;; (global-set-key (kbd "C-c C-c") 'comment-region)
+;; (global-set-key (kbd "C-c u") 'uncomment-region)
 (global-set-key (kbd "C-c s") 'shell)
 (global-set-key (kbd "M-#") 'quick-calc)
 (global-set-key (kbd "C-c i") 'indent-region)
+(global-set-key (kbd "<f8>") 'conf-mode)
+(global-set-key (kbd "<f7>") 'set-frame-name)
+(global-set-key (kbd "C-c h") 'winner-undo)
+(global-set-key (kbd "C-c l") 'winner-redo)
 
 ;; helm
 (require 'helm)

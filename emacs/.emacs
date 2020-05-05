@@ -32,12 +32,13 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(setq initial-buffer-choice t)
+
 (package-initialize)
 
 (add-to-list 'default-frame-alist '(foreground-color . "#E0DFDB"))
 (add-to-list 'default-frame-alist '(background-color . "#000000"))
 (setq visible-bell 1)
-
 
 (setq inferior-lisp-program "/usr/bin/sbcl")
 
@@ -47,9 +48,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ediff-split-window-function (quote split-window-horizontally))
+ '(gerrit-host "gerrit.ims.co.at")
+ '(mu4e-headers-fields
+   (quote
+    ((:human-date . 12)
+     (:flags . 6)
+     (:maildir . 20)
+     (:from . 22)
+     (:subject))))
  '(package-selected-packages
    (quote
-    (go-autocomplete go-mode flycheck-gometalinter yaml-mode auto-complete magit load-relative flycheck-tip evil)))
+    (exec-path-from-shell yaml-mode jedi highlight-indent-guides org-bullets company-ycmd)))
  '(tab-stop-list
    (quote
     (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
@@ -63,11 +73,15 @@
 ;; myheader
 (load "~/.emacs.d/myheader.el")
 
+;; load email mu4e
+(load "~/.emacs.d/email.el")
 
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
 (electric-pair-mode t)
+
+(load "~/.emacs.d/elpa/gerrit-20200110.2130/gerrit.el")
 
 (provide '.emacs)
 ;;; .emacs ends here

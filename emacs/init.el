@@ -13,23 +13,28 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;;; Python
 ;; Elpy
 (elpy-enable)
+
+;; Ipython
+(setq python-shell-interpreter "ipython3"
+      python-shell-interpreter-args "-i --simple-prompt")
+
 
 ;; higlight line numbers
 (load-file "~/.emacs.d/linum-highligth-current-line-number.el")
 
-;; (load-file "~/.emacs.d/elpa/load-relative-20160504.321/load-relative.el")
-(load-file "~/.emacs.d/elpa/load-relative-20160716.438/load-relative.el")
+;; (load-file "~/.emacs.d/elpa/load-relative-20190601.1221/load-relative.el")
+(require 'load-relative)
 
 
 ;; Evil
-;;(add-to-list 'load-path "~/.emacs.d/evil")
-(add-to-list 'load-path "~/.emacs.d/elpa/evil-20160827.1510")
-(require 'evil)
-(evil-mode t)
-(setcdr evil-insert-state-map nil)
-(define-key evil-insert-state-map [escape] 'evil-normal-state)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/evil-20160827.1510")
+;; (require 'evil)
+;; (evil-mode t)
+;; (setcdr evil-insert-state-map nil)
+;; (define-key evil-insert-state-map [escape] 'evil-normal-state)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Flycheck
@@ -64,6 +69,39 @@
 ;;       (set-window-buffer target-window buf)
 ;;       target-window)))
 
+
+;; jedi
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+;; highlight-indentation
+(add-hook 'python-mode-hook 'highlight-indentation-mode)
+
+
+;; C/C++ IDE
+;; ycmd
+;; (load-relative "cpp.el")
+
+;; jira-rest
+;; (load-relative "~/prj/jira/api/jira-rest/jira-rest.el")
+;; (require 'jira-rest)
+
+;; add org-bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook 'org-bullets-mode)
+
+;; yaml-mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+(add-hook 'yaml-mode-hook
+  '(lambda ()
+     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+;; add ssh-agent from shells environment varibles
+(require 'exec-path-from-shell)
+(exec-path-from-shell-copy-env "SSH_AGENT_PID")
+(exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
 
 (provide 'init)

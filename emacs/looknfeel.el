@@ -2,11 +2,11 @@
 ;;; Look & feel
 ;; (setq debug-on-quit t)
 
-(global-linum-mode 1)             ;enable line numbers
+(global-linum-mode 1)             ; enable line numbers
 (tool-bar-mode 0)                 ; disable tool bar
 (menu-bar-mode 0)                 ; disable menu bar
 (display-time-mode 1)                 ; disable menu bar
-(blink-cursor-mode 0)
+(blink-cursor-mode 1)
 (windmove-default-keybindings)    ; switch windows with shift-arrow
 (fset 'yes-or-no-p 'y-or-n-p)     ; y/n instead of yes/no
 (setq ring-bell-function 'ignore) ; no bell ringing
@@ -14,7 +14,7 @@
 (prefer-coding-system 'utf-8)
 (setq column-number-mode t)
 (show-paren-mode t)
-(setq show-paren-style 'expression)
+(setq show-paren-style 'parenthesis)
 (ido-mode t)
 ;; (set-face-background 'show-paren-match-face "#382C2C")
 
