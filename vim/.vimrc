@@ -79,7 +79,7 @@ filetype indent plugin on
 syntax on
 
 " automatically indent lines (default)
-" set noautoindent
+set noautoindent
 
 " select case-insenitiv search (not default)
 " set ignorecase
@@ -117,8 +117,8 @@ set cmdheight=2
 
 " Indentation settings for using 2 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " changes special characters in search patterns (default)
