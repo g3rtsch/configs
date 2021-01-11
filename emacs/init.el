@@ -18,7 +18,7 @@
 (elpy-enable)
 
 ;; Ipython
-(setq python-shell-interpreter "ipython3"
+(setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
 
 
@@ -71,8 +71,8 @@
 
 
 ;; jedi
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)
 
 ;; highlight-indentation
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
