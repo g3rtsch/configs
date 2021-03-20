@@ -12,10 +12,15 @@
 #  gnome-settings-daemon &
 #fi
 
-tint2 &
-xscreensaver &
-feh --bg-scale ~/.local/share/background/nasa-5477L9Z5eqI-unsplash.jpg
-setxkbmap -option '' -option caps:ctrl_modifier -option kpdl:dot -option terminate:ctrl_alt_bksp -option grp:sclk_toggle us,de
+# tint2 &
+systemctl --user start tint2
+/usr/lib/notification-daemon/notification-daemon &
+# xscreensaver &
+# feh --bg-scale ~/.local/share/background/nasa-5477L9Z5eqI-unsplash.jpg
 parcellite &
-xrandr --output DP-1-1 --mode 1920x1080 --left-of eDP-1
-xrandr --output DP-1-2 --mode 1920x1080 --left-of DP-1-1
+setxkbmap -option '' -option ctrl:nocaps -option kpdl:dot -option terminate:ctrl_alt_bksp -option grp:shifts_toggle us,de
+# xrandr --output eDP-1 --scale 1.25x1.25
+# xrandr --output DP-1-1 --mode 1920x1080 --left-of eDP-1
+# xrandr --output DP-1-2 --mode 1920x1080 --left-of DP-1-1
+# xrandr --output DP-2-1 --left-of eDP-1
+# xrandr --output DP-2-2 --left-of DP-2-1
