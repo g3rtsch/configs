@@ -49,6 +49,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ediff-split-window-function (quote split-window-horizontally))
+ '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(gerrit-host "gerrit.ims.co.at")
  '(mu4e-headers-fields
    (quote
@@ -59,7 +60,7 @@
      (:subject))))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell yaml-mode jedi highlight-indent-guides org-bullets company-ycmd)))
+    (ansible flymake-shellcheck markdown-mode gerrit exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
  '(tab-stop-list
    (quote
     (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
@@ -70,18 +71,16 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; myheader
-(load "~/.emacs.d/myheader.el")
 
 ;; load email mu4e
 (load "~/.emacs.d/email.el")
 
-(require 'auto-complete)
-(require 'auto-complete-config)
+;; (require 'auto-complete)
+;; (require 'auto-complete-config)
 (ac-config-default)
 (electric-pair-mode t)
 
-(load "~/.emacs.d/elpa/gerrit-20200110.2130/gerrit.el")
+(require 'gerrit)
 
 (provide '.emacs)
 ;;; .emacs ends here

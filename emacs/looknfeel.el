@@ -14,7 +14,7 @@
 (prefer-coding-system 'utf-8)
 (setq column-number-mode t)
 (show-paren-mode t)
-(setq show-paren-style 'parenthesis)
+(setq show-paren-style 'mixed)
 (ido-mode t)
 ;; (set-face-background 'show-paren-match-face "#382C2C")
 
@@ -37,18 +37,18 @@
 
 
 ;; Colored compilation
-(define-derived-mode ansi-compilation-mode compilation-mode "ansi compilation"
-  "Compilation mode that understands ansi colors."
-  (require 'ansi-color)
-  (toggle-read-only 0)
-  (ansi-color-apply-on-region (point-min) (point-max)))
+;; (define-derived-mode ansi-compilation-mode compilation-mode "ansi compilation"
+;;   "Compilation mode that understands ansi colors."
+;;   (require 'ansi-color)
+;;   (toggle-read-only 0)
+;;   (ansi-color-apply-on-region (point-min) (point-max)))
 
-(defun colorize-compilation (one two)
-  "ansi colorize the compilation buffer."
-  (ansi-compilation-mode)
- )
+;; (defun colorize-compilation (one two)
+;;   "ansi colorize the compilation buffer."
+;;   (ansi-compilation-mode)
+;;  )
 
-(setq compilation-finish-function 'colorize-compilation)
+;; (setq compilation-finish-function 'colorize-compilation)
 
 ;; (require 'ace-jump-mode)
 ;; (define-key global-map (kbd "C-c SPC") 'ace-jump-line-mode)
@@ -85,7 +85,7 @@
 
 (global-flycheck-mode)
 
-(require 'flycheck-tip)
+;; (require 'flycheck-tip)
 
 (define-key key-translation-map (kbd "C-;") (kbd "\C-c !"))
 
@@ -94,13 +94,13 @@
   (flycheck-compile (flycheck-get-checker-for-buffer))
 )
 
-(defun my-flycheck-hook ()
-  (local-set-key (kbd "C-c C-n") 'flycheck-tip-cycle)
-  (local-set-key (kbd "C-c C-p") 'flycheck-tip-cycle-reverse)
-  (local-set-key (kbd "<f9>") 'check-buffer)
-  )
+;; (defun my-flycheck-hook ()
+;;   (local-set-key (kbd "C-c C-n") 'flycheck-tip-cycle)
+;;   (local-set-key (kbd "C-c C-p") 'flycheck-tip-cycle-reverse)
+;;   (local-set-key (kbd "<f9>") 'check-buffer)
+;;   )
 
-(add-hook 'flycheck-mode-hook 'my-flycheck-hook)
+;; (add-hook 'flycheck-mode-hook 'my-flycheck-hook)
 
 
 (defun kill-on-quit-hook ()

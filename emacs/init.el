@@ -13,6 +13,9 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; add load-path
+(add-to-list 'load-path "~/.emacs.d/elpa/")
+
 ;;; Python
 ;; Elpy
 (elpy-enable)
@@ -40,12 +43,15 @@
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+;; shellcheck
+(add-hook 'sh-mode-hook 'flymake-shellcheck-load)
 
 (load-relative "looknfeel.el")
 (load-relative "keybindings.el")
-(load-relative "themes/wombat-customized.el")
-;; (load-relative "header2.el")
+;; (load-relative "themes/wombat-customized.el")
 
+;; myheader
+(load "~/.emacs.d/myheader.el")
 
 ;; auto-header
 ;; (autoload 'auto-update-file-header "header2")
@@ -77,6 +83,8 @@
 ;; highlight-indentation
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 
+;; python
+(add-hook 'python-mode-hook (lambda () (auto-complete-mode -1)))
 
 ;; C/C++ IDE
 ;; ycmd
@@ -90,6 +98,10 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook 'org-bullets-mode)
 
+;; flyspell-mode
+(dolist (hook '(org-mode-hook mu4e-compose-mode-hook text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
@@ -98,11 +110,14 @@
   '(lambda ()
      (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
+;; ansible minor
+(require 'ansible)
+(add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+
 ;; add ssh-agent from shells environment varibles
 (require 'exec-path-from-shell)
 (exec-path-from-shell-copy-env "SSH_AGENT_PID")
 (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
-
 
 (provide 'init)
 ;;; init.el ends here

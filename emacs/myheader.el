@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(load-relative "header2.el")
+;; (load-relative "header2.el")
+(add-to-list 'load-path "~/.emacs.d/myloads/header2/")
 (require 'header2)
 
 (defsubst auto-make-elisp-header ()
@@ -30,10 +31,22 @@
 			   header-author))
   (auto-make-header))
 
+(defsubst header-python ()
+  "Insert python shebang."
+  (insert "#!/usr/bin/env python" "\n"))
+
+(defsubst auto-make-python-header ()
+  "Make header for python files."
+  (setq make-header-hook '(header-python
+			   header-file-name
+			   header-creation-date
+			   header-author))
+  (auto-make-header))
+
 (autoload 'auto-make-header "header2")
 (add-hook 'emacs-lisp-mode-hook 'auto-make-elisp-header)
 (add-hook 'sh-mode-hook 'auto-make-shell-header)
-
+(add-hook 'python-mode-hook 'auto-make-python-header)
 
 (provide 'myheader)
 ;;; myheader.el ends here
