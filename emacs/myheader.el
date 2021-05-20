@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; (load-relative "header2.el")
 (add-to-list 'load-path "~/.emacs.d/myloads/header2/")
 (require 'header2)
 
