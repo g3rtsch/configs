@@ -21,12 +21,13 @@
 (elpy-enable)
 
 ;; Ipython
-(setq python-shell-interpreter "ipython"
+(setq python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt")
 
 
-;; higlight line numbers
-(load-file "~/.emacs.d/linum-highligth-current-line-number.el")
+;; relative line numbers
+(require 'linum-relative)
+(linum-relative-on)
 
 ;; (load-file "~/.emacs.d/elpa/load-relative-20190601.1221/load-relative.el")
 (require 'load-relative)
@@ -82,6 +83,14 @@
 
 ;; highlight-indentation
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
+(add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'yaml-mode-hook 'highlight-indentation-mode)
+(add-hook 'yaml-mode-hook 'highlight-indentation-current-column-mode)
+(add-hook 'nxml-mode-hook 'highlight-indentation-mode)
+(add-hook 'nxml-mode-hook 'highlight-indentation-current-column-mode)
+
+;; hs-minor-mode (hide/show code definitions/classes)
+(add-hook 'python-mode-hook 'hs-minor-mode)
 
 ;; python
 (add-hook 'python-mode-hook (lambda () (auto-complete-mode -1)))
@@ -99,7 +108,8 @@
 (add-hook 'org-mode-hook 'org-bullets-mode)
 
 ;; flyspell-mode
-(dolist (hook '(org-mode-hook mu4e-compose-mode-hook text-mode-hook))
+;; (dolist (hook '(org-mode-hook mu4e-compose-mode-hook text-mode-hook))
+(dolist (hook '(org-mode-hook mu4e-compose-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
 
 ;; yaml-mode

@@ -51,6 +51,7 @@
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(gerrit-host "gerrit.ims.co.at")
+ '(indent-tabs-mode nil)
  '(mu4e-headers-fields
    (quote
     ((:human-date . 12)
@@ -60,7 +61,7 @@
      (:subject))))
  '(package-selected-packages
    (quote
-    (ansible flymake-shellcheck markdown-mode gerrit exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
+    (linum-relative treemacs ansible flymake-shellcheck markdown-mode gerrit exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
  '(tab-stop-list
    (quote
     (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
