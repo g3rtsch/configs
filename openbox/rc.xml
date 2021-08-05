@@ -361,6 +361,15 @@
         <command>rofi -show run -monitor -2</command>
       </action>
     </keybind>
+    <keybind key="W-c">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>ROFI/greenclip clipboard</name>
+        </startupnotify>
+        <command>rofi -modi "clipboard:greenclip print" -show</command>
+      </action>
+    </keybind>
     <!-- Keybindings for window switching with the arrow keys -->
     <keybind key="W-S-Right">
       <action name="DirectionalCycleWindows">
