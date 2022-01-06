@@ -143,5 +143,10 @@
         (("software/dbscripts" "main") "~/prj/git/software/dbscripts")
         (("software/cs-cpu" "version-oka") "~/prj/git/software/cs-cpu")
        ))
+
+;; display shell buffer at bottom
+(add-to-list 'display-buffer-alist
+             '("^\\*shell\\*" . (display-buffer-at-bottom . nil)))
+
 (provide 'init)
 ;;; init.el ends here
