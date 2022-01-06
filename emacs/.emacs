@@ -81,7 +81,5 @@
 (ac-config-default)
 (electric-pair-mode t)
 
-(require 'gerrit)
-
 (provide '.emacs)
 ;;; .emacs ends here

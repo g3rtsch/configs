@@ -129,5 +129,12 @@
 (exec-path-from-shell-copy-env "SSH_AGENT_PID")
 (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
+(require 'gerrit)
+(setq gerrit-project-to-local-workspace-alist
+      '(
+        (("software/tools" "datb") "~/prj/git/tools")
+        (("software/dbscripts" "main") "~/prj/git/software/dbscripts")
+        (("software/cs-cpu" "version-oka") "~/prj/git/software/cs-cpu")
+       ))
 (provide 'init)
 ;;; init.el ends here
