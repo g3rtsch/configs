@@ -29,6 +29,9 @@
 (require 'linum-relative)
 (linum-relative-on)
 
+;; higlight line numbers
+;;(load-file "~/.emacs.d/linum-highligth-current-line-number.el")
+
 ;; (load-file "~/.emacs.d/elpa/load-relative-20190601.1221/load-relative.el")
 (require 'load-relative)
 
