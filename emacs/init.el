@@ -106,6 +106,10 @@
 ;; (load-relative "~/prj/jira/api/jira-rest/jira-rest.el")
 ;; (require 'jira-rest)
 
+;; org
+;; org autocomplete
+(require 'org-ac)
+(org-ac/config-default)
 ;; add org-bullets
 (require 'org-bullets)
 (add-hook 'org-mode-hook 'org-bullets-mode)
