@@ -59,9 +59,10 @@
      (:maildir . 20)
      (:from . 22)
      (:subject))))
+ '(org-export-with-sub-superscripts (quote {}))
  '(package-selected-packages
    (quote
-    (linum-relative treemacs ansible flymake-shellcheck markdown-mode gerrit exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
+    (htmlize org-ac company elpy linum-relative treemacs ansible flymake-shellcheck markdown-mode gerrit exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
  '(tab-stop-list
    (quote
     (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
