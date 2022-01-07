@@ -3,7 +3,7 @@
 ;;; Code:
 ;; (global-set-key (kbd "C-c C-c") 'comment-region)
 ;; (global-set-key (kbd "C-c u") 'uncomment-region)
-(global-set-key (kbd "C-c s") 'eshell)
+(global-set-key (kbd "C-c s") 'shell)
 (global-set-key (kbd "M-#") 'quick-calc)
 (global-set-key (kbd "C-c i") 'indent-region)
 (global-set-key (kbd "<f8>") 'conf-mode)
