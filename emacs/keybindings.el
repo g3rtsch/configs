@@ -15,6 +15,9 @@
 (global-set-key (kbd "<f9>") 'treemacs)
 (global-set-key (kbd "C-c -") 'hs-toggle-hiding)
 
+;; remap keys
+(define-key global-map [remap list-buffers] 'ibuffer-other-window)
+
 ;; helm
 ;; (require 'helm)
 ;; (global-set-key (kbd "C-c b") 'helm-buffers-list)
