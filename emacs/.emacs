@@ -48,10 +48,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(desktop-restore-frames nil)
  '(ediff-split-window-function (quote split-window-horizontally))
  '(ediff-window-setup-function (quote ediff-setup-windows-plain))
- '(gerrit-host "gerrit.ims.co.at")
  '(indent-tabs-mode nil)
+ '(linum-relative-current-symbol "")
  '(mu4e-headers-fields
    (quote
     ((:human-date . 12)
@@ -62,7 +63,7 @@
  '(org-export-with-sub-superscripts (quote {}))
  '(package-selected-packages
    (quote
-    (htmlize org-ac company elpy linum-relative treemacs ansible flymake-shellcheck markdown-mode gerrit exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
+    (company-ansible mermaid-mode ox-gfm gerrit flycheck load-relative htmlize org-ac company elpy linum-relative treemacs ansible flymake-shellcheck markdown-mode exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
  '(tab-stop-list
    (quote
     (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
