@@ -18,8 +18,13 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=
 HISTFILESIZE=
-# HISTTIMEFORMAT="%d/%m/%y %T "
+HISTCONTROL='ignoredups'
 HISTTIMEFORMAT="%Y-%m-%d %T " 
+PROMPT_COMMAND='history -a'  # Write to history immediately
+
+shopt -s histappend      # Append to history file
+shopt -s cmdhist         # Save multiple-line commands in same history entry
+shopt -s lithist         # Save real newlines instead of ";" in history
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -120,10 +125,17 @@ fi
 
 
 # make use of ctrl-s for reverse search
-stty -ixon
+# stty -ixon
 
 # gpg agent for ssh agent
 # unset SSH_AGENT_PID
 # if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 #     export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 # fi
+
+## source python3-argcomplete
+eval "$(register-python-argcomplete3 mysettings.py)"
+
+# fzf
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
