@@ -19,6 +19,7 @@ systemctl --user start tint2
 # feh --bg-scale ~/.local/share/background/nasa-5477L9Z5eqI-unsplash.jpg
 greenclip daemon &
 setxkbmap -option '' -option ctrl:nocaps -option kpdl:dot -option terminate:ctrl_alt_bksp -option grp:shifts_toggle us,de
+xxkb &
 # xrandr --output eDP-1 --scale 1.25x1.25
 # xrandr --output DP-1-1 --mode 1920x1080 --left-of eDP-1
 # xrandr --output DP-1-2 --mode 1920x1080 --left-of DP-1-1
