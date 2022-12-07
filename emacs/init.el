@@ -35,6 +35,8 @@
 ;; (load-file "~/.emacs.d/elpa/load-relative-20190601.1221/load-relative.el")
 (require 'load-relative)
 
+;; Magit
+(setq git-commit-summary-max-length 50)
 
 ;; Evil
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/evil-20160827.1510")
@@ -115,17 +117,16 @@
 (add-hook 'org-mode-hook 'org-bullets-mode)
 
 ;; flyspell-mode
-;; (dolist (hook '(org-mode-hook mu4e-compose-mode-hook text-mode-hook))
-(dolist (hook '(org-mode-hook mu4e-compose-mode-hook))
+;; (dolist (hook '(org-mode-hook mu4e-compose-mode-hook))
+(dolist (hook '(org-mode-hook mu4e-compose-mode-hook text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
+;; deactivate flyspell-mode
+(dolist (hook '(yaml-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
 
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-
-(add-hook 'yaml-mode-hook
-  '(lambda ()
-     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 ;; ansible minor
 (require 'ansible)
@@ -136,17 +137,12 @@
 (exec-path-from-shell-copy-env "SSH_AGENT_PID")
 (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
-(require 'gerrit)
-(setq gerrit-project-to-local-workspace-alist
-      '(
-        (("software/tools" "datb") "~/prj/git/tools")
-        (("software/dbscripts" "main") "~/prj/git/software/dbscripts")
-        (("software/cs-cpu" "version-oka") "~/prj/git/software/cs-cpu")
-       ))
+;; load gerrit config
+(load-relative "mygerrit.el")
 
 ;; display shell buffer at bottom
-(add-to-list 'display-buffer-alist
-             '("^\\*shell\\*" . (display-buffer-at-bottom . nil)))
+;; (add-to-list 'display-buffer-alist
+;;              '("^\\*shell\\*" . (display-buffer-at-bottom . nil)))
 
 (provide 'init)
 ;;; init.el ends here
