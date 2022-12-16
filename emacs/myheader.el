@@ -1,12 +1,21 @@
-;;; myheader.el --- myheader
+;;; myheader.el --- Includes custom header options
+;;
+;; Filename: myheader.el
+;; Description: Includes custom header options
+;;
 ;;; Commentary:
+;; Includes custom header options
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;;; Code:
 
 (add-to-list 'load-path "~/.emacs.d/myloads/header2/")
 (require 'header2)
 
+;; elsip header
 (defsubst auto-make-elisp-header ()
-;; (defun auto-make-elisp-header ()
   "Make headers for Lisp files."
   (setq make-header-hook '(header-title
 			   header-blank
@@ -22,14 +31,26 @@
 			   header-eof))
   (auto-make-header))
 
+;; bash header
+(defsubst header-shell-env ()
+  "Insert environments bash."
+  (insert "#!/usr/bin/env bash" "\n"))
+
+(defsubst header-requires ()
+  "Insert \"REQUIRES: \" line."
+  (insert "# Requires:" "\n"))
+
 (defsubst auto-make-shell-header ()
-;; (defun auto-make-shell-header ()
   "Make headers for shell files."
-  (setq make-header-hook '(header-shell
-			   header-creation-date
-			   header-author))
+  (setq make-header-hook '(header-shell-env
+                           header-file-name
+                           header-blank
+                           header-description
+                           header-blank
+                           header-requires))
   (auto-make-header))
 
+;; python header
 (defsubst header-python ()
   "Insert python shebang."
   (insert "#!/usr/bin/env python" "\n"))
@@ -42,6 +63,7 @@
 			   header-author))
   (auto-make-header))
 
+;; markdown header
 (defsubst header-md ()
   "Insert Readme template."
   (insert-buffer-substring
@@ -52,6 +74,7 @@
   (setq make-header-hook '(header-md))
   (auto-make-header))
 
+;; add hooks
 (autoload 'auto-make-header "header2")
 (add-hook 'emacs-lisp-mode-hook 'auto-make-elisp-header)
 (add-hook 'sh-mode-hook 'auto-make-shell-header)
@@ -59,4 +82,7 @@
 (add-hook 'markdown-mode-hook 'auto-make-md-header)
 
 (provide 'myheader)
+;;; myheader.el ends here
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; myheader.el ends here
