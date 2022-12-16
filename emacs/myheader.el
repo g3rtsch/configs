@@ -42,10 +42,21 @@
 			   header-author))
   (auto-make-header))
 
+(defsubst header-md ()
+  "Insert Readme template."
+  (insert-buffer-substring
+   (find-file-noselect "~/prj/git/cube/GUIDE-README-TEMPLATE.md")))
+
+(defsubst auto-make-md-header ()
+  "Make header for markdown files."
+  (setq make-header-hook '(header-md))
+  (auto-make-header))
+
 (autoload 'auto-make-header "header2")
 (add-hook 'emacs-lisp-mode-hook 'auto-make-elisp-header)
 (add-hook 'sh-mode-hook 'auto-make-shell-header)
 (add-hook 'python-mode-hook 'auto-make-python-header)
+(add-hook 'markdown-mode-hook 'auto-make-md-header)
 
 (provide 'myheader)
 ;;; myheader.el ends here
