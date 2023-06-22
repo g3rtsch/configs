@@ -38,7 +38,7 @@
 
 (defsubst header-requires ()
   "Insert \"REQUIRES: \" line."
-  (insert "# Requires:" "\n"))
+  (insert "# REQUIRES:" "\n"))
 
 (defsubst auto-make-shell-header ()
   "Make headers for shell files."
