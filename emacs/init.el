@@ -158,5 +158,13 @@
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("network\\.md\\'" . gfm-mode))
 
+(require 'default-text-scale)
+(default-text-scale-mode t)
+
+;; Autocompletion for LaTex
+;; (add-to-list 'load-path "~/.emacs.d/elpa/company-auctex-20200529.1835/company-auctex.el")
+(require 'company-auctex)
+(company-auctex-init)
+
 (provide 'init)
 ;;; init.el ends here
