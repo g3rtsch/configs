@@ -146,5 +146,17 @@
 ;; (add-to-list 'display-buffer-alist
 ;;              '("^\\*shell\\*" . (display-buffer-at-bottom . nil)))
 
+;; Set binary for markdownlint
+(setq flycheck-markdown-mdl-executable "~/.local/share/gem/ruby/3.0.0/bin/mdl")
+;; disable rules
+(setq flycheck-markdown-mdl-rules '("~MD013"
+                                    "~MD009"))
+
+;; Set markdown to gfm-mode
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+(add-to-list 'auto-mode-alist '("network\\.md\\'" . gfm-mode))
+
 (provide 'init)
 ;;; init.el ends here
