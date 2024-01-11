@@ -12,7 +12,7 @@
 (global-set-key (kbd "C-c h") 'winner-undo)
 (global-set-key (kbd "C-c l") 'winner-redo)
 (global-set-key (kbd "C-c d") 'ediff-buffers)
-(global-set-key (kbd "<f9>") 'treemacs)
+(global-set-key (kbd "<f9>") 'treemacs-select-directory)
 (global-set-key (kbd "C-c -") 'hs-toggle-hiding)
 
 ;; remap keys

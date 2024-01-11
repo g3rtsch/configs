@@ -15,7 +15,10 @@
 (setq column-number-mode t)
 (show-paren-mode t)
 (setq show-paren-style 'mixed)
-(ido-mode t)
+
+;; (ido-mode t)
+;; moved to myivy.el
+;; (ivy-mode t)
 ;; (set-face-background 'show-paren-match-face "#382C2C")
 
 (defun ask-before-closing ()
