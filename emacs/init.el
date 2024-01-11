@@ -5,12 +5,13 @@
 (load-theme 'wombat)
 
 (require 'package)
+(require 'use-package)
+;; uncomment to auto install missing packages
+;; (setq use-package-always-ensure t)
 
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+
 (package-initialize)
 
 ;; add load-path
@@ -54,6 +55,7 @@
 
 (load-relative "looknfeel.el")
 (load-relative "keybindings.el")
+(load-relative "myivy.el")
 ;; (load-relative "themes/wombat-customized.el")
 
 ;; myheader

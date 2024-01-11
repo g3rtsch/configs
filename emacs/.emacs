@@ -32,9 +32,8 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(setq load-prefer-newer t)
 (setq initial-buffer-choice t)
-
-(package-initialize)
 
 (add-to-list 'default-frame-alist '(foreground-color . "#E0DFDB"))
 (add-to-list 'default-frame-alist '(background-color . "#000000"))
@@ -49,24 +48,23 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(desktop-restore-frames nil)
- '(ediff-split-window-function (quote split-window-horizontally))
- '(ediff-window-setup-function (quote ediff-setup-windows-plain))
+ '(ediff-split-window-function 'split-window-horizontally)
+ '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(indent-tabs-mode nil)
  '(linum-relative-current-symbol "")
  '(mu4e-headers-fields
-   (quote
-    ((:human-date . 12)
+   '((:human-date . 12)
      (:flags . 6)
      (:maildir . 20)
      (:from . 22)
-     (:subject))))
- '(org-export-with-sub-superscripts (quote {}))
+     (:subject)))
+ '(org-export-with-sub-superscripts '{})
+ '(org-jira-use-status-as-todo t)
+ '(org-jira-working-dir "~/.local/share/org-jira")
  '(package-selected-packages
-   (quote
-    (company-ansible mermaid-mode ox-gfm gerrit flycheck load-relative htmlize org-ac company elpy linum-relative treemacs ansible flymake-shellcheck markdown-mode exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd)))
+   '(helpful ivy-rich which-key use-package company-auctex org-jira default-text-scale markdown-mode counsel ivy projectile company-ansible mermaid-mode ox-gfm flycheck load-relative htmlize org-ac elpy linum-relative treemacs ansible flymake-shellcheck exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd))
  '(tab-stop-list
-   (quote
-    (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
+   '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
