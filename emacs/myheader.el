@@ -18,17 +18,17 @@
 (defsubst auto-make-elisp-header ()
   "Make headers for Lisp files."
   (setq make-header-hook '(header-title
-			   header-blank
-			   header-file-name
-			   header-description
-			   header-author
-			   header-creation-date
-			   header-commentary
-			   header-blank
-			   header-blank
-			   header-end-line
-			   header-code
-			   header-eof))
+                           header-blank
+                           header-file-name
+                           header-description
+                           header-author
+                           header-creation-date
+                           header-commentary
+                           header-blank
+                           header-blank
+                           header-end-line
+                           header-code
+                           header-eof))
   (auto-make-header))
 
 ;; bash header
@@ -58,9 +58,9 @@
 (defsubst auto-make-python-header ()
   "Make header for python files."
   (setq make-header-hook '(header-python
-			   header-file-name
-			   header-creation-date
-			   header-author))
+                           header-file-name
+                           header-creation-date
+                           header-author))
   (auto-make-header))
 
 ;; markdown header
