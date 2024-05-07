@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Artwiz-boxed</name>
+    <name>Onyx</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -419,7 +419,7 @@
         </startupnotify>
         <!-- <command>sh -c "/usr/bin/pactl set-sink-mute 0 false; /usr/bin/pactl set-sink-volume 0 +5%"</command> -->
         <!-- <command>sh -c "/usr/bin/pactl set-sink-mute 0 false; /usr/bin/pactl set-sink-volume 10 +5%"</command> -->
-        <command>amixer -D pulse sset Master 2%+</command>
+        <command>amixer sset Master 2%+</command>
         <!-- <command>volume-notify.sh up</command> -->
       </action>
     </keybind>
@@ -431,7 +431,7 @@
         </startupnotify>
         <!-- <command>sh -c "/usr/bin/pactl set-sink-mute 0 false; /usr/bin/pactl set-sink-volume 0 -5%"</command> -->
         <!-- <command>sh -c "/usr/bin/pactl set-sink-mute 0 false; /usr/bin/pactl set-sink-volume 10 -5%"</command> -->
-        <command>amixer -D pulse sset Master 2%-</command>
+        <command>amixer sset Master 2%-</command>
         <!-- <command>volume-notify.sh up</command> -->
       </action>
     </keybind>
@@ -442,7 +442,7 @@
           <name>Mute</name>
         </startupnotify>
         <!-- <command>/usr/bin/pactl set-sink-mute 0 toggle</command> -->
-        <command>amixer -D pulse sset Master 1+ toggle</command>
+        <command>amixer sset Master 1+ toggle</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMicMute">
@@ -452,7 +452,7 @@
           <name>MicMute</name>
         </startupnotify>
         <!-- <command>/usr/bin/pactl set-source-mute 1 toggle</command> -->
-        <command>amixer -D pulse sset Capture toggle</command>
+        <command>amixer sset Capture toggle</command>
       </action>
     </keybind>
     <!-- Keybindings for Monitor Brightness -->
