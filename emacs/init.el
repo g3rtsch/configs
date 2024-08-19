@@ -19,7 +19,7 @@
 
 ;;; Python
 ;; Elpy
-(elpy-enable)
+;; (elpy-enable)
 
 ;; Ipython
 (setq python-shell-interpreter "ipython3"
@@ -60,7 +60,8 @@
 (use-package markdown-mode
   :mode
   ("README\\.md\\'" . gfm-mode)
-  ("network\\.md\\'" . gfm-mode))
+  ("network\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
 
 ;; shellcheck
 (add-hook 'sh-mode-hook 'flymake-shellcheck-load)
@@ -151,8 +152,30 @@
 (exec-path-from-shell-copy-env "SSH_AGENT_PID")
 (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
 
-;; load gerrit config
-(load-relative "mygerrit.el")
+(use-package gerrit
+  :init
+  (setq  gerrit-host "gerrit.rnd.ims.co.at")
+  :hook
+  (magit-status-sections-hook . gerrit-magit-insert-status)
+  :config
+  (aset gerrit-dashboard-columns 0 '("Number" 6 t))
+  (aset gerrit-dashboard-columns 2 '("Status" 6 t))
+  (aset gerrit-dashboard-columns 3 '("Owner" 15 t))
+  (aset gerrit-dashboard-columns 6 '("Branch" 15 t))
+  (aset gerrit-dashboard-columns 7 '("Topic" 30 t))
+  (aset gerrit-dashboard-columns 8 '("Updated" 8 t))
+  (defun gerrit-dashboard--reset ()
+    "Reset dashboard."
+    (interactive)
+    (setq gerrit-dashboard-query-alist
+          '(("Assigned to me" . "assignee:self (-is:wip OR owner:self OR assignee:self) is:open -is:ignored")
+            ("Work in progress" . "is:open owner:self is:wip")
+            ("Outgoing reviews" . "is:open owner:self -is:wip -is:ignored")
+            ("Incoming reviews" .  "is:open -owner:self -is:wip -is:ignored (reviewer:self OR assignee:self)")
+            ("CCed On" . "is:open -is:ignored cc:self")
+            ("Recently closed" . "is:closed -is:ignored (-is:wip OR owner:self) (owner:self OR reviewer:self OR assignee:self OR cc:self) limit:15")))
+    (setq tabulated-list-sort-key nil)
+    (gerrit-dashboard--refresh)))
 
 ;; display shell buffer at bottom
 ;; (add-to-list 'display-buffer-alist
@@ -184,6 +207,14 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
+
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-l")
+  :hook ((go-mode . lsp)
+         (python-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
 (provide 'init)
 ;;; init.el ends here
