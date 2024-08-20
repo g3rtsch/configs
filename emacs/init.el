@@ -155,9 +155,9 @@
 (use-package gerrit
   :init
   (setq  gerrit-host "gerrit.rnd.ims.co.at")
-  :hook
-  (magit-status-sections-hook . gerrit-magit-insert-status)
+  :ensure
   :config
+  (progn (add-hook 'magit-status-sections-hook #'gerrit-magit-insert-status t))
   (aset gerrit-dashboard-columns 0 '("Number" 6 t))
   (aset gerrit-dashboard-columns 2 '("Status" 6 t))
   (aset gerrit-dashboard-columns 3 '("Owner" 15 t))
