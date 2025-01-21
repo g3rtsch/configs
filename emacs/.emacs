@@ -47,6 +47,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auth-source-save-behavior nil)
  '(desktop-restore-frames nil)
  '(ediff-split-window-function 'split-window-horizontally)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -62,7 +63,7 @@
  '(org-jira-use-status-as-todo t)
  '(org-jira-working-dir "~/.local/share/org-jira")
  '(package-selected-packages
-   '(helpful ivy-rich which-key use-package company-auctex org-jira default-text-scale markdown-mode counsel ivy projectile company-ansible mermaid-mode ox-gfm flycheck load-relative htmlize org-ac elpy linum-relative treemacs ansible flymake-shellcheck exec-path-from-shell yaml-mode highlight-indent-guides org-bullets company-ycmd))
+   '(highlight-indentation gerrit magit lsp-ivy lsp-mode go-mode groovy-mode vterm helpful ivy-rich which-key use-package company-auctex org-jira default-text-scale markdown-mode counsel ivy projectile company-ansible mermaid-mode ox-gfm flycheck load-relative htmlize org-ac linum-relative treemacs ansible flymake-shellcheck exec-path-from-shell yaml-mode org-bullets company-ycmd))
  '(tab-stop-list
    '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
 (custom-set-faces
@@ -74,6 +75,7 @@
 
 
 ;; load email mu4e
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e/")
 (load "~/.emacs.d/email.el")
 
 ;; (require 'auto-complete)

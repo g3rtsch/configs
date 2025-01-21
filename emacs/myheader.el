@@ -67,7 +67,7 @@
 (defsubst header-md ()
   "Insert Readme template."
   (insert-buffer-substring
-   (find-file-noselect "~/prj/git/cube/GUIDE-README-TEMPLATE.md")))
+   (find-file-noselect "~/prj/git/ci/cube/GUIDE-README-TEMPLATE.md")))
 
 (defsubst auto-make-md-header ()
   "Make header for markdown files."

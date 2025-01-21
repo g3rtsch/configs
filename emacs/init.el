@@ -102,18 +102,22 @@
 ;; (setq jedi:complete-on-dot t)
 
 ;; highlight-indentation
-(add-hook 'python-mode-hook 'highlight-indentation-mode)
-(add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
-(add-hook 'yaml-mode-hook 'highlight-indentation-mode)
-(add-hook 'yaml-mode-hook 'highlight-indentation-current-column-mode)
-(add-hook 'nxml-mode-hook 'highlight-indentation-mode)
-(add-hook 'nxml-mode-hook 'highlight-indentation-current-column-mode)
+(use-package highlight-indentation
+  :hook ((go-mode . lsp)
+         (python-mode . highlight-indentation-mode)
+         (python-mode . highlight-indentation-current-column-mode)
+         (yaml-mode . highlight-indentation-mode)
+         (yaml-mode . highlight-indentation-current-column-mode)
+         (nxml-mode . highlight-indentation-mode)
+         (nxml-mode . highlight-indentation-current-column-mode))
+)
+
 
 ;; hs-minor-mode (hide/show code definitions/classes)
-(add-hook 'python-mode-hook 'hs-minor-mode)
+;; (add-hook 'python-mode-hook 'hs-minor-mode)
 
 ;; python
-(add-hook 'python-mode-hook (lambda () (auto-complete-mode -1)))
+;; (add-hook 'python-mode-hook (lambda () (auto-complete-mode -1)))
 
 ;; C/C++ IDE
 ;; ycmd
@@ -136,16 +140,16 @@
 (dolist (hook '(org-mode-hook mu4e-compose-mode-hook text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
 ;; deactivate flyspell-mode
-(dolist (hook '(yaml-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode -1))))
+;; (dolist (hook '(yaml-mode-hook))
+;;   (add-hook hook (lambda () (flyspell-mode -1))))
 
 ;; yaml-mode
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+;; (require 'yaml-mode)
+;; (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 ;; ansible minor
-(require 'ansible)
-(add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+;; (require 'ansible)
+;; (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
 
 ;; add ssh-agent from shells environment varibles
 (require 'exec-path-from-shell)
@@ -210,7 +214,8 @@
 
 (use-package lsp-mode
   :init
-  (setq lsp-keymap-prefix "C-l")
+  (setq lsp-keymap-prefix "C-c p")
+  (yas-global-mode t)
   :hook ((go-mode . lsp)
          (python-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
