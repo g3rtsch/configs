@@ -456,16 +456,16 @@
       </action>
     </keybind>
     <!-- Keybindings for Monitor Brightness -->
-    <keybind key="XF86MonBrightnessUp">
-      <action name="Execute">
-        <command>sudo sysbacklight up</command>
-      </action>
-    </keybind>
-    <keybind key="XF86MonBrightnessDown">
-      <action name="Execute">
-        <command>sudo sysbacklight down</command>
-      </action>
-    </keybind>
+    <!-- <keybind key="XF86MonBrightnessUp"> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command>sudo sysbacklight up</command> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
+    <!-- <keybind key="XF86MonBrightnessDown"> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command>sudo sysbacklight down</command> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="Print">
       <action name="Execute">
         <command>scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'</command>
