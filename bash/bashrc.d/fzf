@@ -1,0 +1,2 @@
+# activate fzf fuzzysearch for bash
+source ~/.fzf/key-bindings.bash

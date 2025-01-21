@@ -1,0 +1,12 @@
+## Set git-prompt
+
+if [[ "$USER" == "gerald.pigisch" ]] && [[ -n "$INSIDE_EMACS" ]]; then
+    _me="gp"
+else
+    _me="user"
+fi
+
+if [[ -n "$INSIDE_EMACS" ]]; then
+   source ~/.git-prompt.sh
+   PS1='\[\e[01;32m\]$_me@\[\e[01;00m\]\[\e[01;36m\]$(__git_ps1 "(%s)")\[\e[01;00m\]:\[\e[01;34m\]\W\[\e[01;00m\]\$\n>'
+fi

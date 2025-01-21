@@ -1,0 +1,5 @@
+## activate starship
+
+if [[ -z "$INSIDE_EMACS" ]]; then
+   eval $(starship init bash)
+fi
