@@ -190,8 +190,8 @@
 
 ;; Autocompletion for LaTex
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/company-auctex-20200529.1835/company-auctex.el")
-(require 'company-auctex)
-(company-auctex-init)
+;; (require 'company-auctex)
+;; (company-auctex-init)
 
 (use-package which-key
   :init (which-key-mode)
@@ -220,6 +220,9 @@
          (python-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
+
+;; Wayland copy to clipboard
+(load-relative "wl-copy.el")
 
 (provide 'init)
 ;;; init.el ends here
